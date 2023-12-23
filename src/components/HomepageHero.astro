@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import arrowRight from "../../public/arrowRight.svg";
+import earth from "../../public/earth.svg";
+import stars from "../../public/stars.svg";
+import homeHero from "../../public/homeHero.png";
+
+interface Props{
+    listNames: string[];
+}
+
+const { listNames } = Astro.props
+---
+
+<section class="flex justify-center mt-5 flex-col md:flex-row mx-1">
+    <div class="flex flex-col gap-2 w-full md:w-1/2">
+      <h1
+        style="font-family: gilroySemibold;"
+        class="text-4xl md:text-5xl font-semibold md:font-bold text-center md:text-start"
+      >
+        INSPIRING BRAND <br /> EXPERIENCES
+      </h1>
+      <p
+        class="text-sm text-center md:text-start"
+        style="font-family: dmSans;"
+      >
+        Our team of experts specializes in web design & Development, branding,
+        content creation, UI/UX Design, <br /> Community manage, and more.
+      </p>
+      <a
+        class="bg-elipse bg-center bg-no-repeat bg-contain text-lg p-10 max-w-max items-center gap-2 align-center hidden md:flex"
+        style="font-family: dmSans;"
+        href="/documentation"
+      >
+        See More
+        <Image src={arrowRight} alt="Right Arrow" class="w-2" />
+      </a>
+      <Image src={earth} alt="earth" class="w-14 hidden md:block" />
+      <p class="hidden md:block text-sm">
+        A forward-thinking digital design studio delivering subtle
+        experiences.
+      </p>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="flex items-start">
+        <Image
+          src={stars}
+          alt="stars"
+          class="w-[8rem] mt-16 hidden md:block"
+        />
+        <Image
+          src={homeHero}
+          alt="hero"
+          class="my-10 h-[400px] w-auto md:h-[475px] shadow-lg"
+        />
+      </div>
+      <ul
+        class="flex flex-wrap gap-3 justify-center md:justify-start md:items-start w-80 ml-0 md:ml-20 pb-5"
+      >
+        {
+          listNames.map((item) => {
+            return (
+              <li class="px-3 py-2 rounded-full border border-[#11181c] text-sm hover:bg-[#11181c] hover:text-white transition duration-300">
+                {" "}
+                <a href="/">{item}</a>{" "}
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <a
+        class="bg-elipse bg-center bg-no-repeat bg-contain text-lg p-10 max-w-max items-center gap-2 align-center flex md:hidden"
+        style="font-family: dmSans;"
+      >
+        See More
+        <Image src={arrowRight} alt="Right Arrow" class="w-2" />
+      </a>
+    </div>
+  </section>

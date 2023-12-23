@@ -1,0 +1,20 @@
+---
+interface Props {
+    listName: string;
+    listNumber: number
+}
+
+const {listName, listNumber} = Astro.props;
+import arrowRight from '../../public/arrowRight.svg'
+import { Image } from 'astro:assets';
+---
+
+<li class="bg-no-repeat bg-[#CFD9E6] rounded-lg bg-cover md:px-8 py-4 bg-starlines">
+    <h1 class="text-4xl md:text-8xl tracking-wide text-center text-black">{`0${listNumber}`}</h1>
+    <a href="/" class="space-y-2">
+        <div class="flex items-center justify-center gap-2">
+            <h1 class="text-sm md:text-2xl uppercase text-black">{listName}</h1>
+            <Image src={arrowRight} alt="arrow right" height={19} width={17} />
+        </div>
+    </a>
+</li>

@@ -1,0 +1,123 @@
+---
+interface Props{
+    listNames: string[];
+}
+
+const { listNames } = Astro.props
+import { Image } from "astro:assets";
+import ListItems from "./ListItems.astro";
+import logoTextWhite from "../../public/logoTextWhite.svg";
+
+
+---
+
+<section
+      class="bg-[#11181C] w-full text-white flex flex-col gap-10 px-2 md:px-48"
+    >
+      <div class="flex justify-between flex-col md:flex-row flex-wrap pt-10">
+        <h1 style="font-family: gilroySemibold;" class="text-3xl">
+          SERVICES WE <br /> PROVIDE
+        </h1>
+        <p
+          style="font-family: dmSans;"
+          class="text-sm w-full md:w-2/5 pt-6 md:pt-0"
+        >
+          At Hooman Digital, we offer a range of services to help you achieve
+          your digital goals. Our services include: At Hooman Digital, we offer
+          a range of services to help you achieve your digital goals. Our
+          services include:
+        </p>
+      </div>
+
+      <ul
+        class="grid grid-cols-2 md:grid-cols-3 justify-between gap-4 md:gap-14"
+      >
+        {
+          listNames.map((item, index) => {
+            return <ListItems listName={item} listNumber={index + 1} />;
+          })
+        }
+      </ul>
+
+      <div class="flex flex-col md:flex-row justify-between">
+        <div class="w-full md:max-w-max flex flex-col items-center justify-start md:items-start">
+          <Image
+            src={logoTextWhite}
+            alt="company logo in white color"
+            class="w-36 md:w-28 py-3"
+          />
+		  <p style="font-family: gilroyMedium;" class="block md:hidden text-center">
+			At Hooman Digital, we're more than just a team of digital experts. We're a group of individuals.
+		  </p>
+        </div>
+
+        <div class="flex flex-row flex-wrap mt-5">
+          <div class="flex flex-row gap-10 md:gap-20 flex-wrap mb-5">
+            <ul class="flex flex-col gap-1">
+              <li style="font-family: gilroyBold;"><a href="/">Company</a></li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Hire Team</a>
+              </li>
+              <li style="font-family: gilroyMedium;"><a href="/">Jobs</a></li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Brochure</a>
+              </li>
+              <li style="font-family: gilroyMedium;"><a href="/">FAQs</a></li>
+              <li style="font-family: gilroyMedium;"><a href="/">Blog</a></li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Contact us</a>
+              </li>
+            </ul>
+
+            <ul class="flex flex-col gap-1">
+              <li style="font-family: gilroyBold;"><a href="/">Services</a></li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">UI/UX Design</a>
+              </li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Web Development</a>
+              </li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Content Writing</a>
+              </li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Partnerships</a>
+              </li>
+              <li style="font-family: gilroyMedium;">
+                <a href="/">Community mangement</a>
+              </li>
+            </ul>
+
+            <ul class="flex flex-col gap-2">
+              <li style="font-family: gilroyBold;">
+                <a href="/">Start a Conversation</a>
+              </li>
+              <li style="font-family: gilroyMedium;" class="flex items-center gap-1">
+				<span class="bg-white rounded-full h-7 w-7 inline-flex items-center justify-center">
+					<Image src="/skype.svg" width={20} height={20} alt="skype logo" />
+				</span>
+                <a href="/">Hooman Digital</a>
+              </li>
+              <li style="font-family: gilroyMedium;" class="flex items-center gap-1">
+				<span class="bg-white rounded-full h-7 w-7 inline-flex items-center justify-center">
+					<Image src="/mail.svg" width={20} height={20} alt="skype logo" />
+				</span>
+                <a href="/">hello@hoomandigital.com</a>
+              </li>
+              <li style="font-family: gilroyMedium;" class="flex items-center gap-1">
+				<span class="bg-white rounded-full h-7 w-7 inline-flex items-center justify-center">
+					<Image src="/phone.svg" width={20} height={20} alt="skype logo" />
+				</span>
+                <a href="/">+91 123-456-0123</a>
+              </li>
+              <li style="font-family: gilroyMedium;" class="flex items-center gap-1">
+				<span class="bg-white rounded-full h-7 w-7 inline-flex items-center justify-center">
+					<Image src="/whatsapp.svg" width={20} height={20} alt="skype logo" />
+				</span>
+                <a href="/">+91 123-456-0123</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>

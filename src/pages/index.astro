@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import navLogo from "../../public/navLogo.svg";
+import smallNavLogo from "../../public/smallNavLogo.svg";
+import hamburger from "../../public/hamburger.svg";
+import HomepageHero from "../components/HomepageHero.astro";
+import Services from "../components/Services.astro";
+
+const listItemNames = [
+  "UI/UX DESIGN",
+  "WEB DESIGN",
+  "CONTENT",
+  "BRANDING",
+  "PARTNERSHIP",
+  "COMMUNITY",
+];
+
+---
+
+<Layout title="Hooman Digital">
+  <main class="h-full bg-white bg-center md:bg-lines bg-repeat">
+    <nav class="flex justify-between mx-6 md:mx-44 py-5 bg-none">
+      <Image src={navLogo} class="h-9 hidden md:block" alt="logo" />
+      <Image src={smallNavLogo} class="h-9 block md:hidden" alt="hamburger" />
+      <Image src={hamburger} class="h-9" alt="hamburger" />
+    </nav>
+
+	<HomepageHero listNames={listItemNames}/>
+	<Services listNames={listItemNames} />
+
+	<footer class="h-[45px] bg-white flex items-center justify-center md:justify-around ">
+		<p style="font-family: gilroyMedium;" class="text-center" >Copyright © 2023. All Rights Reserved.</p>
+		<ul class="gap-6 hidden md:flex">
+			<li class="border border-solid border-black rounded-full h-8 w-8 flex items-center justify-center"><a href="/"> <Image src="/twitter2.svg" alt="twitter logo" height={15} width={15}/>  </a></li>
+			<li class="border border-solid border-black rounded-full h-8 w-8 flex items-center justify-center"><a href="/"> <Image src="/facebook.svg" alt="facebook logo" height={12} width={12}/>  </a></li>
+			<li class="border border-solid border-black rounded-full h-8 w-8 flex items-center justify-center"><a href="/"> <Image src="/instagram.svg" alt="instagram logo" height={15} width={15}/>  </a></li>
+			<li class="border border-solid border-black rounded-full h-8 w-8 flex items-center justify-center"><a href="/"> <Image src="/youtube.svg" alt="youtube logo" height={15} width={15}/>  </a></li>
+		</ul>
+	</footer>
+  </main>
+</Layout>

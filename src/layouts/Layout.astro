@@ -1,0 +1,57 @@
+---
+interface Props {
+	title: string;
+}
+import { ViewTransitions } from 'astro:transitions';
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	html {
+		font-family: system-ui, sans-serif;
+	}
+	@font-face{
+		font-family: "gilroySemibold";
+		src: url("/fonts/Gilroy-SemiBold.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face{
+		font-family: "gilroyMedium";
+		src: url("/fonts/Gilroy-Medium.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face{
+		font-family: "gilroyBold";
+		src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face{
+		font-family: "dmSans";
+		src: url("/fonts/dmSans.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+</style>
